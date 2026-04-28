@@ -1,0 +1,131 @@
+{
+  "name": "Day 12 - Post-Purchase Review Request",
+  "nodes": [
+    {
+      "parameters": {
+        "authentication": "accessToken",
+        "topic": "orders/fulfilled"
+      },
+      "type": "n8n-nodes-base.shopifyTrigger",
+      "typeVersion": 1,
+      "position": [
+        0,
+        0
+      ],
+      "id": "e5cd6f3e-71cb-458e-be5f-ad2e1b1bb72d",
+      "name": "Shopify Trigger",
+      "webhookId": "034b2e81-98b0-4462-9d14-e9940cbff0eb",
+      "credentials": {
+        "shopifyAccessTokenApi": {
+          "id": "LSpIUgiDLF7yhtSr",
+          "name": "Shopify Access Token account"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "amount": 7,
+        "unit": "days"
+      },
+      "type": "n8n-nodes-base.wait",
+      "typeVersion": 1.1,
+      "position": [
+        160,
+        0
+      ],
+      "id": "6de4ce74-fe67-42cf-b634-95ee4e3be076",
+      "name": "Wait",
+      "webhookId": "9f281e54-977c-4b05-ac3a-2a57ece2224f"
+    },
+    {
+      "parameters": {
+        "sendTo": "={{ $json.email }}",
+        "subject": "=How's your order, {{ $json.shipping_address.first_name }}?",
+        "message": "=Hi {{ $json.shipping_address.first_name }},  We hope you're loving your recent order! We'd love to hear what you think.  Here's what you ordered: {{ $json.line_items.map(item => '- ' + item.title).join('\\n') }}  Could you take 2 minutes to leave us a review? It helps other customers find us and means the world to our small team.  [Leave a Review → your-review-link-here]  Thank you so much! The Team",
+        "options": {}
+      },
+      "type": "n8n-nodes-base.gmail",
+      "typeVersion": 2.2,
+      "position": [
+        320,
+        0
+      ],
+      "id": "fb928e4b-300f-48b4-b5e7-1bfc9635015d",
+      "name": "Send a message",
+      "webhookId": "b707f9f7-c2f3-4a70-81ce-417343807beb",
+      "credentials": {
+        "gmailOAuth2": {
+          "id": "yDttKVRFdqCwmJrZ",
+          "name": "Gmail OAuth2 API"
+        }
+      }
+    }
+  ],
+  "pinData": {
+    "Shopify Trigger": [
+      {
+        "json": {
+          "id": 111222333,
+          "email": "denmarjohnoropel@gmail.com",
+          "shipping_address": {
+            "first_name": "Maria",
+            "last_name": "Santos"
+          },
+          "line_items": [
+            {
+              "title": "The Collection Snowboard: Hydrogen",
+              "quantity": 1,
+              "price": "600.00"
+            },
+            {
+              "title": "Selling Plans Ski Wax",
+              "quantity": 2,
+              "price": "10.00"
+            }
+          ],
+          "total_price": "610.00"
+        }
+      }
+    ]
+  },
+  "connections": {
+    "Shopify Trigger": {
+      "main": [
+        [
+          {
+            "node": "Wait",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Wait": {
+      "main": [
+        [
+          {
+            "node": "Send a message",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    }
+  },
+  "active": true,
+  "settings": {
+    "executionOrder": "v1",
+    "binaryMode": "separate",
+    "timeSavedMode": "fixed",
+    "errorWorkflow": "gbFIFYXBBP6oOwrO",
+    "callerPolicy": "workflowsFromSameOwner",
+    "availableInMCP": false
+  },
+  "versionId": "5bd4bdf5-82f5-4fb5-9edd-9081614ecae1",
+  "meta": {
+    "templateCredsSetupCompleted": true,
+    "instanceId": "fdc7a2e49492375c89a9ffa83c43ef3afb3664143bc58ac105fdfbcf67fc90e1"
+  },
+  "id": "I03WshBCwYFdpjuW",
+  "tags": []
+}

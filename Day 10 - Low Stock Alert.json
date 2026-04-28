@@ -1,0 +1,156 @@
+{
+  "name": "Day 10 - Low Stock Alert",
+  "nodes": [
+    {
+      "parameters": {
+        "rule": {
+          "interval": [
+            {
+              "field": "hours",
+              "hoursInterval": 6
+            }
+          ]
+        }
+      },
+      "type": "n8n-nodes-base.scheduleTrigger",
+      "typeVersion": 1.3,
+      "position": [
+        0,
+        0
+      ],
+      "id": "b33f17a4-b0bc-4db6-852d-92dc24aad098",
+      "name": "Schedule Trigger"
+    },
+    {
+      "parameters": {
+        "authentication": "accessToken",
+        "resource": "product",
+        "operation": "getAll",
+        "returnAll": true,
+        "additionalFields": {}
+      },
+      "type": "n8n-nodes-base.shopify",
+      "typeVersion": 1,
+      "position": [
+        208,
+        0
+      ],
+      "id": "458206ef-5946-4cc3-8e1c-cddfd3174240",
+      "name": "Get many products",
+      "credentials": {
+        "shopifyAccessTokenApi": {
+          "id": "LSpIUgiDLF7yhtSr",
+          "name": "Shopify Access Token account"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "conditions": {
+          "options": {
+            "caseSensitive": true,
+            "leftValue": "",
+            "typeValidation": "strict",
+            "version": 3
+          },
+          "conditions": [
+            {
+              "id": "fec4c71a-df07-4b2d-b478-31c8eb6b652e",
+              "leftValue": "={{ $json.variants[0].inventory_quantity }}",
+              "rightValue": 5,
+              "operator": {
+                "type": "number",
+                "operation": "lt"
+              }
+            }
+          ],
+          "combinator": "and"
+        },
+        "options": {}
+      },
+      "type": "n8n-nodes-base.if",
+      "typeVersion": 2.3,
+      "position": [
+        416,
+        0
+      ],
+      "id": "ea0e7954-7496-46b1-915a-f260bc34863e",
+      "name": "If"
+    },
+    {
+      "parameters": {
+        "sendTo": "denmarjohnoropel@gmail.com",
+        "subject": "=⚠️ Low Stock Alert: {{ $json.title }}",
+        "message": "=Product: {{ $json.title }} Current Stock: {{ $json.variants[0].inventory_quantity }} units Variant: {{ $json.variants[0].title }}  Restock soon to avoid lost sales.",
+        "options": {}
+      },
+      "type": "n8n-nodes-base.gmail",
+      "typeVersion": 2.2,
+      "position": [
+        624,
+        -96
+      ],
+      "id": "98f13b4a-8202-4bcc-a250-8dafeb12dba0",
+      "name": "Send a message",
+      "webhookId": "eb91b5a1-0ba4-419f-baf3-13fe63fb5095",
+      "credentials": {
+        "gmailOAuth2": {
+          "id": "yDttKVRFdqCwmJrZ",
+          "name": "Gmail OAuth2 API"
+        }
+      }
+    }
+  ],
+  "pinData": {},
+  "connections": {
+    "Schedule Trigger": {
+      "main": [
+        [
+          {
+            "node": "Get many products",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Get many products": {
+      "main": [
+        [
+          {
+            "node": "If",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "If": {
+      "main": [
+        [
+          {
+            "node": "Send a message",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    }
+  },
+  "active": true,
+  "settings": {
+    "executionOrder": "v1",
+    "binaryMode": "separate",
+    "timeSavedMode": "fixed",
+    "errorWorkflow": "gbFIFYXBBP6oOwrO",
+    "callerPolicy": "workflowsFromSameOwner",
+    "availableInMCP": false
+  },
+  "versionId": "e6543083-c03b-470c-bebb-06a747bb643e",
+  "meta": {
+    "templateCredsSetupCompleted": true,
+    "instanceId": "fdc7a2e49492375c89a9ffa83c43ef3afb3664143bc58ac105fdfbcf67fc90e1"
+  },
+  "id": "dVoY1UnzDonwIIH5",
+  "tags": []
+}

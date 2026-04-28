@@ -1,0 +1,246 @@
+{
+  "name": "Day 9 - Shopify New Order to Sheet",
+  "nodes": [
+    {
+      "parameters": {
+        "authentication": "accessToken",
+        "topic": "orders/create"
+      },
+      "type": "n8n-nodes-base.shopifyTrigger",
+      "typeVersion": 1,
+      "position": [
+        -256,
+        0
+      ],
+      "id": "bdea75a0-f7ee-4923-894a-c675cb4dc3b2",
+      "name": "Shopify Trigger",
+      "webhookId": "444a4e3c-f048-47b5-a0ea-ba36d4693509",
+      "credentials": {
+        "shopifyAccessTokenApi": {
+          "id": "LSpIUgiDLF7yhtSr",
+          "name": "Shopify Access Token account"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "assignments": {
+          "assignments": [
+            {
+              "id": "bc7442a5-d9bb-4177-a805-b1e562ad1932",
+              "name": "Order ID",
+              "value": "={{ $json.id }}",
+              "type": "number"
+            },
+            {
+              "id": "d2d846da-4a6e-4c3f-89d1-ccc741265d7b",
+              "name": "Customer Name",
+              "value": "={{ $json.customer.first_name }} {{ $json.customer.last_name }}",
+              "type": "string"
+            },
+            {
+              "id": "505077ee-a43c-4137-bbea-6ec88175ae49",
+              "name": "Email",
+              "value": "={{ $json.customer.email }}",
+              "type": "string"
+            },
+            {
+              "id": "ac4b99b9-0bd3-4317-aa10-0d5e0700ac3c",
+              "name": "Order Total",
+              "value": "={{ $json.total_price }}",
+              "type": "string"
+            },
+            {
+              "id": "ebc2008a-9c4d-4212-9604-c42155d8e17d",
+              "name": "Products",
+              "value": "={{ $json.line_items.map(item => item.name).join(', ') }}",
+              "type": "string"
+            },
+            {
+              "id": "30654ae8-c560-4cde-ae85-3ec9bd594dcb",
+              "name": "Created At",
+              "value": "={{ $json.created_at }}",
+              "type": "string"
+            }
+          ]
+        },
+        "options": {}
+      },
+      "type": "n8n-nodes-base.set",
+      "typeVersion": 3.4,
+      "position": [
+        -96,
+        0
+      ],
+      "id": "90c998a0-d54d-4b0e-aeff-112a802ef8ad",
+      "name": "Edit Fields"
+    },
+    {
+      "parameters": {
+        "operation": "append",
+        "documentId": {
+          "__rl": true,
+          "value": "1j82HYtdHL1zj4iVj-MN0TcxdJKl4ix5QBw6hKjGbPpc",
+          "mode": "list",
+          "cachedResultName": "Shopify Orders - denmar-test-store",
+          "cachedResultUrl": "https://docs.google.com/spreadsheets/d/1j82HYtdHL1zj4iVj-MN0TcxdJKl4ix5QBw6hKjGbPpc/edit?usp=drivesdk"
+        },
+        "sheetName": {
+          "__rl": true,
+          "value": "gid=0",
+          "mode": "list",
+          "cachedResultName": "Sheet1",
+          "cachedResultUrl": "https://docs.google.com/spreadsheets/d/1j82HYtdHL1zj4iVj-MN0TcxdJKl4ix5QBw6hKjGbPpc/edit#gid=0"
+        },
+        "columns": {
+          "mappingMode": "defineBelow",
+          "value": {
+            "Order ID": "={{ $json['Order ID'] }}",
+            "Customer Name": "={{ $json['Customer Name'] }}",
+            "Email": "={{ $json.Email }}",
+            "Order Total": "={{ $json['Order Total'] }}",
+            "Products": "={{ $json.Products }}",
+            "Created At": "={{ $json['Created At'] }}"
+          },
+          "matchingColumns": [],
+          "schema": [
+            {
+              "id": "Order ID",
+              "displayName": "Order ID",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true
+            },
+            {
+              "id": "Customer Name",
+              "displayName": "Customer Name",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true
+            },
+            {
+              "id": "Email",
+              "displayName": "Email",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true
+            },
+            {
+              "id": "Order Total",
+              "displayName": "Order Total",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true
+            },
+            {
+              "id": "Products",
+              "displayName": "Products",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true
+            },
+            {
+              "id": "Created At",
+              "displayName": "Created At",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true
+            }
+          ],
+          "attemptToConvertTypes": false,
+          "convertFieldsToString": false
+        },
+        "options": {}
+      },
+      "type": "n8n-nodes-base.googleSheets",
+      "typeVersion": 4.7,
+      "position": [
+        112,
+        0
+      ],
+      "id": "a388e501-1347-4be1-901e-e4f03b8b68b5",
+      "name": "Append row in sheet",
+      "credentials": {
+        "googleSheetsOAuth2Api": {
+          "id": "mQSTcj5xCR7YS9Nd",
+          "name": "Google Sheets OAuth2 API"
+        }
+      }
+    }
+  ],
+  "pinData": {
+    "Shopify Trigger": [
+      {
+        "json": {
+          "id": 7150665400609,
+          "created_at": "2026-04-28T11:31:00+08:00",
+          "total_price": "960.00",
+          "customer": {
+            "first_name": "Russell",
+            "last_name": "Winfield",
+            "email": "russel.winfield@example.com"
+          },
+          "line_items": [
+            {
+              "name": "The Multi-location Snowboard",
+              "quantity": 1,
+              "price": "960.00"
+            }
+          ]
+        }
+      }
+    ]
+  },
+  "connections": {
+    "Shopify Trigger": {
+      "main": [
+        [
+          {
+            "node": "Edit Fields",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Edit Fields": {
+      "main": [
+        [
+          {
+            "node": "Append row in sheet",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    }
+  },
+  "active": true,
+  "settings": {
+    "executionOrder": "v1",
+    "binaryMode": "separate",
+    "timeSavedMode": "fixed",
+    "errorWorkflow": "gbFIFYXBBP6oOwrO",
+    "callerPolicy": "workflowsFromSameOwner",
+    "availableInMCP": false
+  },
+  "versionId": "c55276c0-5741-4a83-b02d-f6da44a9b3e8",
+  "meta": {
+    "templateCredsSetupCompleted": true,
+    "instanceId": "fdc7a2e49492375c89a9ffa83c43ef3afb3664143bc58ac105fdfbcf67fc90e1"
+  },
+  "id": "hB8vGfiTvV98HfKG",
+  "tags": []
+}
