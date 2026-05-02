@@ -13,6 +13,7 @@ I build automation systems for Shopify stores that save time, recover revenue, a
 Automatically logs every Shopify order to a Google Sheet in real time.
 - **Client type:** Any Shopify store wanting order visibility
 - **Price:** $300–500 setup
+- **Demo:** [Watch Loom demo](https://www.loom.com/share/cf1fb2908f544196a25b71ffc43fe17a)
 
 ### 2. Low Stock Alert System
 Checks inventory every 6 hours. Sends email alert when any product drops below 5 units.
