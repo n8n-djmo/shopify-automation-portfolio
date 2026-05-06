@@ -30,6 +30,12 @@ Sends a personalized review request 7 days after order fulfillment, mentioning t
 - **Client type:** All Shopify stores
 - **Price:** $300–500 setup
 
+### 5. AI Email Triage System
+Automatically classifies incoming customer emails (COMPLAINT, RETURN, QUESTION, COMPLIMENT) using Claude AI, drafts a context-aware reply, and logs everything to Google Sheets.
+- **Client type:** E-commerce stores with high customer support volume
+- **Price:** $500–900 setup
+- **Demo:** [Watch Loom Demo](https://loom.com/share/21f8a2f68f964e3bb9e9fe0feb0c161e)
+  
 ---
 
 ## Stack
@@ -37,4 +43,5 @@ Sends a personalized review request 7 days after order fulfillment, mentioning t
 - Shopify API
 - Gmail API
 - Google Sheets API
-- Claude AI (coming soon)
+- Claude AI
+  
