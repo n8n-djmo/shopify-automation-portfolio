@@ -7,6 +7,7 @@ I build automation systems for Shopify stores that save time, recover revenue, a
 
 ## Portfolio Projects
 - [Portfolio Project #1: Shopify AI Email Engine](./portfolio-project-1-shopify-email-engine.md)
+- - [Portfolio Project #2 — AI Customer Support Triage System](portfolio-project-2-ai-support-triage.md) | $800–1,500 setup
 
 ---
 
