@@ -45,6 +45,7 @@ Automatically classifies incoming customer emails (COMPLAINT, RETURN, QUESTION, 
 Automatically generates a warm, branded thank-you email using Claude AI after every Shopify order and sends it via Gmail.
 - **Client type:** Any Shopify brand wanting personalized post-purchase communication
 - **Price:** $300–600 setup
+- 🎥 [Watch the demo](https://www.loom.com/share/711107e700db4c13ba48cea61d6c41d0)
 
 ### 7. AI Product Description Generator
 Pulls a Shopify product's title, type, and tags, then uses Claude AI to generate a 150-word SEO-optimized description and writes it directly back to the Shopify product page.
