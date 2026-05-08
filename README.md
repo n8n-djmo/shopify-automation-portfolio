@@ -71,3 +71,8 @@ Every Monday at 8am, pulls all Shopify inventory and sends the store owner a pla
 - Google Sheets API
 - Claude AI
   
+## Work With Me
+
+I build done-for-you AI automation systems for Shopify brands. Setup takes 5–7 days. Starter package from $500.
+
+📅 [Book a free 20-minute discovery call](https://calendly.com) — or email me at denmarjohnoropel@gmail.com
