@@ -1,4 +1,4 @@
-# Portfolio Project #2 — AI Customer Support Triage System
+# Portfolio Project #2: AI Customer Support Triage System
 
 ## The Problem
 
