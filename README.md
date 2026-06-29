@@ -5,7 +5,7 @@
 I build automation systems for service-based businesses that save time, eliminate manual work, and run 24/7 without anyone lifting a finger.
 
 📧 [denmarjohnoropel@gmail.com](mailto:denmarjohnoropel@gmail.com)
-🌐 [View Portfolio Website](https://n8n-djmo.github.io/shopify-automation-portfolio/)
+🌐 [View Portfolio Website](https://n8n-djmo.github.io/ai-automation-portfolio/)
 
 ---
 
