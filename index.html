@@ -96,31 +96,36 @@
       transition: background 0.3s ease, border-color 0.3s ease;
     }
     .nav-logo { display: flex; flex-direction: column; gap: 0.1rem; text-decoration: none; line-height: 1.2; }
-    .nav-logo-name { font-family: 'Space Grotesk', sans-serif; font-weight: 700; font-size: 1rem; color: var(--text); letter-spacing: -0.01em; white-space: nowrap; }
+    .nav-logo-name { font-family: 'Space Grotesk', sans-serif; font-weight: 700; font-size: 1rem; color: var(--text); letter-spacing: 0.02em; white-space: nowrap; text-transform: uppercase; }
     .nav-logo-name span { color: var(--accent); }
     .nav-logo-role { font-size: 0.68rem; font-weight: 500; color: var(--accent2); letter-spacing: 0.06em; text-transform: uppercase; white-space: nowrap; }
     .nav-links { display: flex; gap: 2rem; list-style: none; align-items: center; }
     .nav-links a { font-size: 0.85rem; color: var(--muted); text-decoration: none; letter-spacing: 0.02em; transition: color .2s; }
+    [data-theme="light"] .nav-links a { color: #3A3A4A; }
     .nav-links a:hover { color: var(--text); }
 
-    /* ── THEME TOGGLE ── */
+    /* ── THREE-WAY THEME TOGGLE ── */
     .nav-right { display: flex; align-items: center; gap: 0.75rem; }
-    .theme-toggle {
-      width: 40px; height: 22px; border-radius: 99px;
-      background: var(--border2); border: none; cursor: pointer;
-      position: relative; transition: background 0.3s ease;
-      flex-shrink: 0;
+    .theme-switcher {
+      display: flex; align-items: center;
+      background: var(--surface2); border: 1px solid var(--border2);
+      border-radius: 99px; padding: 3px; gap: 2px;
+      transition: background 0.3s ease, border-color 0.3s ease;
     }
-    .theme-toggle-thumb {
-      position: absolute; top: 3px; left: 3px;
-      width: 16px; height: 16px; border-radius: 50%;
-      background: var(--accent);
-      transition: transform 0.3s ease, background 0.3s ease;
-      display: flex; align-items: center; justify-content: center;
-      font-size: 9px;
+    .theme-btn {
+      background: transparent; border: none; cursor: pointer;
+      padding: 4px 10px; border-radius: 99px; font-size: 0.72rem;
+      font-weight: 600; letter-spacing: 0.04em; color: var(--muted);
+      transition: background 0.2s, color 0.2s; white-space: nowrap;
+      font-family: 'Inter', sans-serif;
     }
-    [data-theme="dark"] .theme-toggle-thumb { transform: translateX(18px); }
-    .theme-toggle-label { font-size: 0.75rem; color: var(--muted); white-space: nowrap; }
+    .theme-btn.active {
+      background: var(--surface); color: var(--text);
+      box-shadow: 0 1px 4px rgba(0,0,0,0.12);
+    }
+    [data-theme="dark"] .theme-btn.active {
+      background: var(--border2); color: var(--text);
+    }
 
     .nav-cta {
       background: var(--accent); color: #fff;
@@ -204,11 +209,11 @@
 
     /* ── SECTION BASE ── */
     section { padding: 100px 5vw; }
-    .section-label { font-size: 0.72rem; font-weight: 600; text-transform: uppercase; letter-spacing: 0.12em; color: var(--accent); margin-bottom: 0.8rem; }
+    .section-label { font-size: 0.85rem; font-weight: 600; text-transform: uppercase; letter-spacing: 0.12em; color: var(--accent); margin-bottom: 0.8rem; }
     h2 { font-family: 'Space Grotesk', sans-serif; font-size: clamp(1.8rem, 3.5vw, 2.8rem); font-weight: 700; letter-spacing: -0.03em; line-height: 1.15; margin-bottom: 1rem; color: var(--text); }
     .section-sub { font-size: 1.05rem; color: var(--muted); max-width: 560px; line-height: 1.7; margin-bottom: 3.5rem; }
     .center { text-align: center; }
-    .center .section-sub { margin-left: auto; margin-right: auto; }
+    .center .section-sub { margin-left: auto; margin-right: auto; text-align: center; }
 
     /* ── PROBLEM ── */
     #problem { background: var(--problem-bg); transition: background 0.3s ease; }
@@ -365,7 +370,7 @@
       .about-photo-frame { max-width: 280px; }
       h1 { font-size: 2.2rem; }
       .hero-stats { gap: 1.5rem; }
-      .theme-toggle-label { display: none; }
+      .theme-btn { padding: 4px 6px; font-size: 0.65rem; }
     }
 
     /* ── SCROLL FADE ── */
@@ -387,10 +392,11 @@
     <li><a href="#about">About</a></li>
   </ul>
   <div class="nav-right">
-    <span class="theme-toggle-label" id="theme-label">Light</span>
-    <button class="theme-toggle" id="theme-toggle" aria-label="Toggle theme">
-      <div class="theme-toggle-thumb" id="toggle-thumb">☀️</div>
-    </button>
+    <div class="theme-switcher" role="group" aria-label="Theme">
+      <button class="theme-btn" id="btn-light" onclick="setTheme('light')">☀️ Light</button>
+      <button class="theme-btn" id="btn-device" onclick="setTheme('device')">💻 Device</button>
+      <button class="theme-btn" id="btn-dark" onclick="setTheme('dark')">🌙 Dark</button>
+    </div>
     <a class="nav-cta" href="https://calendly.com/denmarjohnoropel/30min" target="_blank">Book a Free Call</a>
   </div>
 </nav>
@@ -600,29 +606,35 @@
 </footer>
 
 <script>
-// ── THEME TOGGLE ──
+// ── THREE-WAY THEME TOGGLE ──
 const html = document.documentElement;
-const toggle = document.getElementById('theme-toggle');
-const thumb = document.getElementById('toggle-thumb');
-const label = document.getElementById('theme-label');
 
-const saved = localStorage.getItem('theme') || 'light';
-html.setAttribute('data-theme', saved);
-updateToggleUI(saved);
-
-toggle.addEventListener('click', () => {
-  const current = html.getAttribute('data-theme');
-  const next = current === 'light' ? 'dark' : 'light';
-  html.setAttribute('data-theme', next);
-  localStorage.setItem('theme', next);
-  updateToggleUI(next);
-  if (next === 'dark') initCanvas();
-});
-
-function updateToggleUI(theme) {
-  thumb.textContent = theme === 'light' ? '☀️' : '🌙';
-  label.textContent = theme === 'light' ? 'Light' : 'Dark';
+function getDeviceTheme() {
+  return window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light';
 }
+
+function applyTheme(preference) {
+  const resolved = preference === 'device' ? getDeviceTheme() : preference;
+  html.setAttribute('data-theme', resolved);
+  document.getElementById('btn-light').classList.toggle('active', preference === 'light');
+  document.getElementById('btn-device').classList.toggle('active', preference === 'device');
+  document.getElementById('btn-dark').classList.toggle('active', preference === 'dark');
+  if (resolved === 'dark') initCanvas(); else { if (animFrame) { cancelAnimationFrame(animFrame); animFrame = null; } }
+}
+
+function setTheme(preference) {
+  localStorage.setItem('theme', preference);
+  applyTheme(preference);
+}
+
+// On load: default to 'device' unless user has explicitly chosen before
+const saved = localStorage.getItem('theme') || 'device';
+applyTheme(saved);
+
+// React to OS theme change when in device mode
+window.matchMedia('(prefers-color-scheme: dark)').addEventListener('change', () => {
+  if ((localStorage.getItem('theme') || 'device') === 'device') applyTheme('device');
+});
 
 // ── WORKFLOW CANVAS (dark mode only) ──
 const canvas = document.getElementById('workflow-canvas');
