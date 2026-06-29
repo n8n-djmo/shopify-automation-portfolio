@@ -198,9 +198,13 @@
     }
     .center { text-align: center; }
     .center .section-sub {
-      margin-left: auto; margin-right: auto;
-      text-align: center; display: block; width: 100%;
+      margin-left: auto; margin-right: auto; text-align: center;
     }
+    /* Centered sections stack as flex column so blocks center horizontally */
+    #how, #services, #cta {
+      display: flex; flex-direction: column; align-items: center;
+    }
+    #how .steps, #services .pricing-grid { width: 100%; }
 
     /* ── PROBLEM ── */
     #problem { background: var(--surface); }
