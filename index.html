@@ -94,7 +94,6 @@
       pointer-events: none;
     }
 
-    /* Workflow animation canvas */
     #workflow-canvas {
       position: absolute; inset: 0;
       pointer-events: none; opacity: 0.45;
@@ -213,9 +212,7 @@
     .problem-item p { font-size: 0.9rem; color: var(--muted); line-height: 1.65; }
 
     /* ── HOW IT WORKS ── */
-    #how {
-      position: relative;
-    }
+    #how { position: relative; }
     .steps {
       display: grid; grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
       gap: 2rem; margin-top: 1rem;
@@ -329,12 +326,15 @@
       font-size: 0.68rem; font-weight: 600; text-transform: uppercase;
       letter-spacing: 0.06em; padding: 0.2rem 0.55rem; border-radius: 4px;
     }
-    .tag-shopify { background: rgba(150,191,70,0.12); color: #96BF46; }
+    .tag-flagship { background: rgba(91,95,239,0.18); color: var(--accent2); border: 1px solid rgba(91,95,239,0.3); }
     .tag-ai { background: rgba(91,95,239,0.12); color: var(--accent2); }
     .tag-email { background: rgba(251,146,60,0.12); color: #FB923C; }
     .tag-crm { background: rgba(34,197,94,0.12); color: var(--green); }
     .tag-support { background: rgba(244,63,94,0.12); color: #F43F5E; }
     .tag-inventory { background: rgba(168,85,247,0.12); color: #A855F7; }
+    .tag-leads { background: rgba(34,197,94,0.12); color: var(--green); }
+    .tag-onboarding { background: rgba(251,146,60,0.12); color: #FB923C; }
+    .tag-reminders { background: rgba(168,85,247,0.12); color: #A855F7; }
     .workflow-card h3 {
       font-family: var(--font-display); font-size: 1rem; font-weight: 600;
       margin-bottom: 0.4rem; line-height: 1.3;
@@ -466,7 +466,6 @@
     }
     .about-link:hover { border-color: var(--accent); background: var(--accent-glow); color: var(--white); }
 
-    /* Credentials row below */
     .credentials-row {
       display: grid; grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
       gap: 1rem; margin-top: 3.5rem;
@@ -560,10 +559,10 @@
     Available for new clients
   </div>
 
-  <h1>Your Shopify Store Should<br/><em>Run Itself.</em></h1>
+  <h1>Your Business Should<br/><em>Run Itself.</em></h1>
 
   <p class="hero-sub">
-    I build AI-powered automation systems using n8n and Claude AI — so your post-purchase emails, customer support, and inventory management happen automatically, without you lifting a finger.
+    I build AI-powered automation systems using n8n and Claude AI — so your client follow-ups, onboarding, appointment reminders, and support responses happen automatically, without you lifting a finger.
   </p>
 
   <div class="hero-actions">
@@ -573,7 +572,7 @@
 
   <div class="hero-stats">
     <div class="stat">
-      <div class="stat-num">9<span>+</span></div>
+      <div class="stat-num">13<span>+</span></div>
       <div class="stat-label">Billable Workflows</div>
     </div>
     <div class="stat">
@@ -594,29 +593,29 @@
 <!-- PROBLEM -->
 <section id="problem">
   <div class="section-label">The Problem</div>
-  <h2>Most Shopify stores are<br/>leaking revenue every day.</h2>
-  <p class="section-sub">The biggest missed opportunities aren't in your ads — they're in the follow-up that never happens.</p>
+  <h2>Most service businesses are<br/>losing time and leads every day.</h2>
+  <p class="section-sub">The biggest missed opportunities aren't in your marketing — they're in the follow-up that never happens.</p>
 
   <div class="problem-grid fade-in">
     <div class="problem-item">
-      <div class="problem-icon">🛒</div>
-      <h3>Abandoned carts with no recovery</h3>
-      <p>A shopper adds to cart, leaves — and you never follow up. That's recoverable revenue walking out the door.</p>
-    </div>
-    <div class="problem-item">
       <div class="problem-icon">📬</div>
-      <h3>No post-purchase email sequence</h3>
-      <p>Customers buy and hear nothing. No thank-you, no review request, no cross-sell. The relationship ends at checkout.</p>
+      <h3>Leads go cold with no follow-up</h3>
+      <p>A potential client fills out your contact form. You respond once. Then life gets busy — and the lead never hears from you again.</p>
     </div>
     <div class="problem-item">
-      <div class="problem-icon">📦</div>
-      <h3>Stock runs out before you notice</h3>
-      <p>You find out a product is out of stock when customers complain — not before, when you could have acted.</p>
+      <div class="problem-icon">🗓️</div>
+      <h3>No-shows cost you money</h3>
+      <p>Clients forget appointments. You lose the slot. A well-timed reminder would have prevented it — but sending them manually just doesn't happen.</p>
+    </div>
+    <div class="problem-item">
+      <div class="problem-icon">📋</div>
+      <h3>Onboarding is slow and inconsistent</h3>
+      <p>Every new client waits while you manually draft a welcome email, send an invoice, and write onboarding instructions. One by one, every time.</p>
     </div>
     <div class="problem-item">
       <div class="problem-icon">📩</div>
       <h3>Support inbox eating your time</h3>
-      <p>Every day starts with sorting and responding to the same types of emails — manually, one by one.</p>
+      <p>Every day starts with sorting and responding to the same types of messages — manually, one by one, before any real work gets done.</p>
     </div>
   </div>
 </section>
@@ -636,7 +635,7 @@
     <div class="step">
       <div class="step-num">02</div>
       <h3>I Build It</h3>
-      <p>I set up your automation workflows — connected to your Shopify store, Gmail, and Google Sheets. You don't touch a single line of code.</p>
+      <p>I set up your automation workflows — connected to your existing tools like Gmail, Google Sheets, and your calendar or booking app. You don't touch a single line of code.</p>
     </div>
     <div class="step">
       <div class="step-num">03</div>
@@ -657,10 +656,10 @@
     <div class="pricing-card">
       <div class="pricing-name">Starter</div>
       <div class="pricing-price">$500<sub>–750</sub></div>
-      <p class="pricing-desc">Perfect for stores that want one high-impact automation set up and running fast.</p>
+      <p class="pricing-desc">Perfect for businesses that want one high-impact automation set up and running fast.</p>
       <ul class="pricing-features">
         <li>One workflow of your choice</li>
-        <li>Connected to your Shopify store</li>
+        <li>Connected to your existing tools</li>
         <li>Loom walkthrough on delivery</li>
         <li>5–7 day setup</li>
         <li>Error alert monitoring included</li>
@@ -672,13 +671,12 @@
       <div class="featured-tag">Most Popular</div>
       <div class="pricing-name">Growth</div>
       <div class="pricing-price">$1,000<sub>–1,500</sub></div>
-      <p class="pricing-desc">Full email automation engine — the complete post-purchase and follow-up system.</p>
+      <p class="pricing-desc">Two flagship workflows — automate your lead capture and client onboarding, or any two workflows that fit your business.</p>
       <ul class="pricing-features">
-        <li>AI Thank You Email (post-purchase)</li>
-        <li>Abandoned Cart Recovery</li>
-        <li>Post-Purchase Review Request</li>
-        <li>All 3 connected to Shopify</li>
+        <li>Two flagship workflows of your choice</li>
+        <li>AI-personalized emails and responses</li>
         <li>CRM logging to Google Sheets</li>
+        <li>Connected to your existing tools</li>
         <li>Loom walkthrough on delivery</li>
       </ul>
       <a href="https://calendly.com/denmarjohnoropel/30min" target="_blank" class="pricing-cta">Book a Free Call →</a>
@@ -687,13 +685,13 @@
     <div class="pricing-card">
       <div class="pricing-name">Premium</div>
       <div class="pricing-price">$2,000<sub>–2,500</sub></div>
-      <p class="pricing-desc">Full AI stack — email engine, customer support triage, and inventory intelligence.</p>
+      <p class="pricing-desc">The complete automated client lifecycle — from first website visit to appointment reminder, built as one connected system.</p>
       <ul class="pricing-features">
-        <li>Everything in Growth</li>
-        <li>AI Customer Support Triage Bot</li>
-        <li>Low Stock Alert + Restock Report</li>
-        <li>AI Product Description Generator</li>
-        <li>Full CRM dashboard (Google Sheets)</li>
+        <li>All 4 flagship workflows</li>
+        <li>AI Website Chatbot (24/7 visitor support)</li>
+        <li>Lead Capture + 7-day nurture sequence</li>
+        <li>Invoice + Onboarding Automation</li>
+        <li>Appointment Reminder Workflow</li>
         <li>Optional retainer: $150–300/mo</li>
       </ul>
       <a href="https://calendly.com/denmarjohnoropel/30min" target="_blank" class="pricing-cta outline">Get Started →</a>
@@ -706,27 +704,97 @@
 <section id="portfolio">
   <div class="section-label">Portfolio</div>
   <h2>Every automation<br/>I've built — live demos included.</h2>
-  <p class="section-sub">All workflows are built, tested, and running on a real Shopify dev store. Click "Watch Demo" to see them in action.</p>
+  <p class="section-sub">All workflows are built, tested, and verified end-to-end. Click "Watch Demo" to see them in action.</p>
 
   <div class="portfolio-tabs">
     <button class="tab-btn active" data-filter="all">All Workflows</button>
-    <button class="tab-btn" data-filter="shopify">Shopify</button>
+    <button class="tab-btn" data-filter="flagship">Flagship</button>
     <button class="tab-btn" data-filter="ai">AI-Powered</button>
     <button class="tab-btn" data-filter="email">Email</button>
+    <button class="tab-btn" data-filter="leads">Leads</button>
     <button class="tab-btn" data-filter="support">Support</button>
     <button class="tab-btn" data-filter="inventory">Inventory</button>
   </div>
 
   <div class="workflow-grid fade-in" id="workflow-grid">
 
-    <div class="workflow-card" data-tags="shopify email crm">
+    <!-- FLAGSHIP WORKFLOWS -->
+    <div class="workflow-card" data-tags="flagship ai leads email">
       <div class="wf-tags">
-        <span class="wf-tag tag-shopify">Shopify</span>
-        <span class="wf-tag tag-email">Email</span>
-        <span class="wf-tag tag-crm">CRM</span>
+        <span class="wf-tag tag-flagship">Flagship</span>
+        <span class="wf-tag tag-ai">AI</span>
+        <span class="wf-tag tag-leads">Leads</span>
       </div>
-      <h3>Shopify New Order → Google Sheets Logger</h3>
-      <p>Every new Shopify order is automatically captured and logged to a Google Sheet with 6 data fields. Real-time order visibility without any manual entry.</p>
+      <h3>AI Website Chatbot</h3>
+      <p>24/7 AI-powered chatbot connected to your knowledge base. Answers visitor questions instantly, remembers conversation context, and never hallucinates outside its knowledge.</p>
+      <div class="wf-footer">
+        <div class="wf-price">$300–1,500</div>
+        <a href="https://www.loom.com/share/ec9b6f61884247619d6efe7fa7bf5f97" target="_blank" class="wf-demo">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polygon points="5 3 19 12 5 21 5 3"/></svg>
+          Watch Demo
+        </a>
+      </div>
+    </div>
+
+    <div class="workflow-card" data-tags="flagship ai leads email crm">
+      <div class="wf-tags">
+        <span class="wf-tag tag-flagship">Flagship</span>
+        <span class="wf-tag tag-ai">AI</span>
+        <span class="wf-tag tag-leads">Leads</span>
+      </div>
+      <h3>Lead Capture + Nurture Sequence</h3>
+      <p>Captures form submissions, sends a personalized AI-written first-touch email within seconds, then follows up automatically over 7 days. Stops the moment a lead replies.</p>
+      <div class="wf-footer">
+        <div class="wf-price">$500–1,500</div>
+        <a href="https://www.loom.com/share/619addbded0f464b82ef0b88f9ee8458" target="_blank" class="wf-demo">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polygon points="5 3 19 12 5 21 5 3"/></svg>
+          Watch Demo
+        </a>
+      </div>
+    </div>
+
+    <div class="workflow-card" data-tags="flagship ai onboarding email crm">
+      <div class="wf-tags">
+        <span class="wf-tag tag-flagship">Flagship</span>
+        <span class="wf-tag tag-ai">AI</span>
+        <span class="wf-tag tag-onboarding">Onboarding</span>
+      </div>
+      <h3>Invoice + Onboarding Automation</h3>
+      <p>The moment a new client submits your intake form, three emails land in their inbox within seconds — a personalized welcome, an invoice with payment link, and full onboarding instructions.</p>
+      <div class="wf-footer">
+        <div class="wf-price">$300–1,500</div>
+        <a href="https://www.loom.com/share/933e2b89bf2b472eb29e47a7fc0d2308" target="_blank" class="wf-demo">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polygon points="5 3 19 12 5 21 5 3"/></svg>
+          Watch Demo
+        </a>
+      </div>
+    </div>
+
+    <div class="workflow-card" data-tags="flagship ai reminders email">
+      <div class="wf-tags">
+        <span class="wf-tag tag-flagship">Flagship</span>
+        <span class="wf-tag tag-ai">AI</span>
+        <span class="wf-tag tag-reminders">Reminders</span>
+      </div>
+      <h3>Appointment Reminder Workflow</h3>
+      <p>Triggers the moment a booking is made. Sends two AI-personalized reminder emails — 24 hours and 1 hour before the appointment — automatically, with no change to how clients book.</p>
+      <div class="wf-footer">
+        <div class="wf-price">$300–1,500</div>
+        <a href="https://www.loom.com/share/ac062edc3a9b4bf7b64bdd33ef3c44bb" target="_blank" class="wf-demo">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polygon points="5 3 19 12 5 21 5 3"/></svg>
+          Watch Demo
+        </a>
+      </div>
+    </div>
+
+    <!-- EXISTING WORKFLOWS -->
+    <div class="workflow-card" data-tags="email crm">
+      <div class="wf-tags">
+        <span class="wf-tag tag-crm">CRM</span>
+        <span class="wf-tag tag-email">Email</span>
+      </div>
+      <h3>New Order → Google Sheets Logger</h3>
+      <p>Every new order is automatically captured and logged to a Google Sheet in real time. Full order visibility without any manual data entry.</p>
       <div class="wf-footer">
         <div class="wf-price">$300–500</div>
         <a href="https://www.loom.com/share/cf1fb2908f544196a25b71ffc43fe17a" target="_blank" class="wf-demo">
@@ -736,53 +804,66 @@
       </div>
     </div>
 
-    <div class="workflow-card" data-tags="shopify inventory email">
+    <div class="workflow-card" data-tags="inventory email">
       <div class="wf-tags">
-        <span class="wf-tag tag-shopify">Shopify</span>
         <span class="wf-tag tag-inventory">Inventory</span>
         <span class="wf-tag tag-email">Email</span>
       </div>
-      <h3>Low Stock Alert — Automated Email Trigger</h3>
-      <p>Runs on a schedule. When any product drops below 5 units, an automated alert email is sent immediately — before you run out.</p>
+      <h3>Low Stock Alert System</h3>
+      <p>Runs on a schedule. When any product drops below a set threshold, an automated alert email fires immediately — before you run out of stock.</p>
       <div class="wf-footer">
         <div class="wf-price">$300–500</div>
-        <span class="wf-demo" style="cursor:default">No demo yet</span>
+        <span class="wf-demo" style="cursor:default">Demo coming soon</span>
       </div>
     </div>
 
-    <div class="workflow-card" data-tags="shopify email">
+    <div class="workflow-card" data-tags="email">
       <div class="wf-tags">
-        <span class="wf-tag tag-shopify">Shopify</span>
         <span class="wf-tag tag-email">Email</span>
       </div>
       <h3>Abandoned Cart Recovery Email</h3>
       <p>Triggered when a shopper abandons checkout. Waits 1 hour, then sends a personalized recovery email automatically — while the intent is still warm.</p>
       <div class="wf-footer">
         <div class="wf-price">$400–700</div>
-        <span class="wf-demo" style="cursor:default">No demo yet</span>
+        <span class="wf-demo" style="cursor:default">Demo coming soon</span>
       </div>
     </div>
 
-    <div class="workflow-card" data-tags="shopify email">
+    <div class="workflow-card" data-tags="email">
       <div class="wf-tags">
-        <span class="wf-tag tag-shopify">Shopify</span>
         <span class="wf-tag tag-email">Email</span>
       </div>
       <h3>Post-Purchase Review Request</h3>
-      <p>7 days after order fulfillment, a review request email is automatically sent with the customer's exact line items listed — personalized, zero effort.</p>
+      <p>After order fulfillment, a review request email is automatically sent with the customer's exact items listed — personalized, zero effort required.</p>
       <div class="wf-footer">
         <div class="wf-price">$300–500</div>
-        <span class="wf-demo" style="cursor:default">No demo yet</span>
+        <span class="wf-demo" style="cursor:default">Demo coming soon</span>
       </div>
     </div>
 
-    <div class="workflow-card" data-tags="shopify ai email crm">
+    <div class="workflow-card" data-tags="ai support crm">
       <div class="wf-tags">
-        <span class="wf-tag tag-shopify">Shopify</span>
+        <span class="wf-tag tag-ai">AI</span>
+        <span class="wf-tag tag-support">Support</span>
+        <span class="wf-tag tag-crm">CRM</span>
+      </div>
+      <h3>AI Email Triage System</h3>
+      <p>Monitors an inbox and classifies every incoming message by category, drafts a context-aware reply using Claude AI, and logs everything to a tracking sheet. Human reviews the draft — AI does the triage.</p>
+      <div class="wf-footer">
+        <div class="wf-price">$500–900</div>
+        <a href="https://www.loom.com/share/21f8a2f68f964e3bb9e9fe0feb0c161e" target="_blank" class="wf-demo">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polygon points="5 3 19 12 5 21 5 3"/></svg>
+          Watch Demo
+        </a>
+      </div>
+    </div>
+
+    <div class="workflow-card" data-tags="ai email">
+      <div class="wf-tags">
         <span class="wf-tag tag-ai">AI</span>
         <span class="wf-tag tag-email">Email</span>
       </div>
-      <h3>AI Thank You Email — Personalized by Claude</h3>
+      <h3>AI Thank You Email</h3>
       <p>On every new order, Claude AI writes a personalized thank-you email using the customer's name and specific products. No two emails are the same.</p>
       <div class="wf-footer">
         <div class="wf-price">$300–600</div>
@@ -793,34 +874,16 @@
       </div>
     </div>
 
-    <div class="workflow-card" data-tags="shopify ai inventory">
+    <div class="workflow-card" data-tags="ai inventory">
       <div class="wf-tags">
-        <span class="wf-tag tag-shopify">Shopify</span>
         <span class="wf-tag tag-ai">AI</span>
         <span class="wf-tag tag-inventory">Inventory</span>
       </div>
       <h3>AI Product Description Generator</h3>
-      <p>Pulls your Shopify products and uses Claude AI to write 150-word SEO descriptions — then writes them directly back into your product pages automatically.</p>
+      <p>Pulls product data, uses Claude AI to write a 150-word SEO-optimized description, and writes it directly back into the product page automatically. No copy-paste required.</p>
       <div class="wf-footer">
         <div class="wf-price">$400–800</div>
-        <span class="wf-demo" style="cursor:default">No demo yet</span>
-      </div>
-    </div>
-
-    <div class="workflow-card" data-tags="ai email support crm">
-      <div class="wf-tags">
-        <span class="wf-tag tag-ai">AI</span>
-        <span class="wf-tag tag-support">Support</span>
-        <span class="wf-tag tag-crm">CRM</span>
-      </div>
-      <h3>AI Email Triage + Auto-Draft Reply</h3>
-      <p>Classifies incoming emails by category and urgency, then has Claude draft a reply — all logged to Google Sheets. Your inbox handles itself.</p>
-      <div class="wf-footer">
-        <div class="wf-price">$500–900</div>
-        <a href="https://www.loom.com/share/21f8a2f68f964e3bb9e9fe0feb0c161e" target="_blank" class="wf-demo">
-          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polygon points="5 3 19 12 5 21 5 3"/></svg>
-          Watch Demo
-        </a>
+        <span class="wf-demo" style="cursor:default">Demo coming soon</span>
       </div>
     </div>
 
@@ -831,44 +894,110 @@
         <span class="wf-tag tag-crm">CRM</span>
       </div>
       <h3>AI Customer Support Triage Bot</h3>
-      <p>Webhook-powered support bot: classifies ticket type, drafts a reply with Claude, logs everything to Google Sheets, and sends an instant response. Full automation.</p>
+      <p>Receives messages in real time via webhook — from a chat widget, contact form, or live chat integration. Classifies category and urgency, drafts a reply, logs the ticket, and sends an instant response. 24/7.</p>
       <div class="wf-footer">
         <div class="wf-price">$500–900</div>
-        <a href="https://www.loom.com/share/21f8a2f68f964e3bb9e9fe0feb0c161e" target="_blank" class="wf-demo">
-          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polygon points="5 3 19 12 5 21 5 3"/></svg>
-          Watch Demo
-        </a>
+        <span class="wf-demo" style="cursor:default">Demo coming soon</span>
       </div>
     </div>
 
-    <div class="workflow-card" data-tags="shopify ai inventory email crm">
+    <div class="workflow-card" data-tags="ai inventory email">
       <div class="wf-tags">
-        <span class="wf-tag tag-shopify">Shopify</span>
         <span class="wf-tag tag-ai">AI</span>
         <span class="wf-tag tag-inventory">Inventory</span>
+        <span class="wf-tag tag-email">Email</span>
       </div>
-      <h3>Restock Intelligence Report — AI Summary</h3>
-      <p>Every Monday at 8am, pulls all inventory data, feeds it to Claude, and emails you a formatted restock intelligence report. Data-driven decisions on autopilot.</p>
+      <h3>Restock Intelligence Report</h3>
+      <p>Every Monday at 8am, pulls full inventory data, feeds it to Claude AI, and emails a structured restock report — CRITICAL / LOW / HEALTHY — with action recommendations. Decisions on autopilot.</p>
       <div class="wf-footer">
         <div class="wf-price">$500–900 + retainer</div>
-        <span class="wf-demo" style="cursor:default">No demo yet</span>
+        <span class="wf-demo" style="cursor:default">Demo coming soon</span>
       </div>
     </div>
 
   </div>
 
-  <!-- Portfolio Projects -->
+  <!-- Portfolio Projects / Case Studies -->
   <div style="margin-top: 5rem;">
-    <div class="section-label">Bundled Projects</div>
-    <h2>Complete automation<br/>stacks — ready to deploy.</h2>
+    <div class="section-label">Case Studies</div>
+    <h2>Complete automation<br/>systems — built and documented.</h2>
     <p class="section-sub">These combine multiple workflows into a single, cohesive system for maximum impact.</p>
 
     <div class="projects-grid fade-in">
+
+      <div class="project-card">
+        <div class="project-header">
+          <div class="project-icon">🤖</div>
+          <div>
+            <h3>AI Website Chatbot</h3>
+            <p>24/7 automated visitor support</p>
+          </div>
+        </div>
+        <div class="project-body">
+          <p>Answers customer questions instantly from a connected knowledge base — nights, weekends, and holidays. Understands natural language and maintains full conversation context.</p>
+          <div class="project-price-row">
+            <div class="project-price">$300–1,500 setup</div>
+            <a href="https://github.com/n8n-djmo/shopify-automation-portfolio/blob/main/case-study-ai-website-chatbot.md" target="_blank" class="project-link">View Case Study →</a>
+          </div>
+        </div>
+      </div>
+
+      <div class="project-card">
+        <div class="project-header">
+          <div class="project-icon">📥</div>
+          <div>
+            <h3>Lead Capture + Nurture Sequence</h3>
+            <p>Automated 7-day lead follow-up</p>
+          </div>
+        </div>
+        <div class="project-body">
+          <p>Every new lead gets a personalized AI-written response within seconds, followed by a structured 7-day nurture sequence. Sequence stops automatically the moment a lead replies.</p>
+          <div class="project-price-row">
+            <div class="project-price">$500–1,500 setup</div>
+            <a href="https://github.com/n8n-djmo/shopify-automation-portfolio/blob/main/case-study-lead-capture-nurture-sequence.md" target="_blank" class="project-link">View Case Study →</a>
+          </div>
+        </div>
+      </div>
+
+      <div class="project-card">
+        <div class="project-header">
+          <div class="project-icon">📋</div>
+          <div>
+            <h3>Invoice + Onboarding Automation</h3>
+            <p>From form submission to fully onboarded</p>
+          </div>
+        </div>
+        <div class="project-body">
+          <p>Three emails — welcome, invoice, and onboarding — delivered within seconds of a new client signing up. Every client gets a consistent, professional first impression automatically.</p>
+          <div class="project-price-row">
+            <div class="project-price">$300–1,500 setup</div>
+            <a href="https://github.com/n8n-djmo/shopify-automation-portfolio/blob/main/case-study-invoice-onboarding-automation.md" target="_blank" class="project-link">View Case Study →</a>
+          </div>
+        </div>
+      </div>
+
+      <div class="project-card">
+        <div class="project-header">
+          <div class="project-icon">🗓️</div>
+          <div>
+            <h3>Appointment Reminder Workflow</h3>
+            <p>No-shows reduced, zero manual work</p>
+          </div>
+        </div>
+        <div class="project-body">
+          <p>Two AI-personalized reminders — 24 hours and 1 hour before every appointment — sent automatically the moment a booking is made. Works with any calendar booking tool.</p>
+          <div class="project-price-row">
+            <div class="project-price">$300–1,500 setup</div>
+            <a href="https://github.com/n8n-djmo/shopify-automation-portfolio/blob/main/case-study-appointment-reminder-workflow.md" target="_blank" class="project-link">View Case Study →</a>
+          </div>
+        </div>
+      </div>
+
       <div class="project-card">
         <div class="project-header">
           <div class="project-icon">✉️</div>
           <div>
-            <h3>Shopify Email Engine</h3>
+            <h3>Shopify AI Email Engine</h3>
             <p>3 workflows — full post-purchase lifecycle</p>
           </div>
         </div>
@@ -883,14 +1012,14 @@
 
       <div class="project-card">
         <div class="project-header">
-          <div class="project-icon">🤖</div>
+          <div class="project-icon">🎯</div>
           <div>
             <h3>AI Support Triage System</h3>
             <p>2 workflows — full inbox automation</p>
           </div>
         </div>
         <div class="project-body">
-          <p>Pairs the AI Email Triage and AI Customer Support Bot into one system. Incoming messages are classified, replied to, and logged — without you reading a single email first.</p>
+          <p>Pairs the AI Email Triage and AI Customer Support Bot into one system. Incoming messages are classified, replied to, and logged — without you reading a single message first.</p>
           <div class="project-price-row">
             <div class="project-price">$800–1,500 setup</div>
             <a href="https://github.com/n8n-djmo/shopify-automation-portfolio/blob/main/portfolio-project-2-ai-support-triage.md" target="_blank" class="project-link">View Case Study →</a>
@@ -907,13 +1036,14 @@
           </div>
         </div>
         <div class="project-body">
-          <p>Combines Low Stock Alerts, Weekly Restock Reports, and AI Product Description Generator. Your store stays stocked, your products stay optimized, automatically.</p>
+          <p>Combines Low Stock Alerts, Weekly Restock Reports, and AI Product Description Generator. Your store stays stocked, your listings stay optimized — automatically.</p>
           <div class="project-price-row">
             <div class="project-price">$900–1,500 + $100–200/mo</div>
             <a href="https://github.com/n8n-djmo/shopify-automation-portfolio/blob/main/portfolio-project-3-shopify-intelligence-suite.md" target="_blank" class="project-link">View Case Study →</a>
           </div>
         </div>
       </div>
+
     </div>
   </div>
 </section>
@@ -934,18 +1064,18 @@
     <div class="about-text">
       <div class="section-label">About</div>
       <h2>Engineer by training.<br/>Automator by obsession.</h2>
-      <p>I'm Denmar, a civil engineer from Cebu City, Philippines who discovered automation — and hasn't looked back. I build <strong>AI-powered n8n workflows</strong> for Shopify brands that eliminate the manual work eating up your time.</p>
+      <p>I'm Denmar, a civil engineer from Cebu City, Philippines who discovered automation — and hasn't looked back. I build <strong>AI-powered n8n workflows</strong> for service-based businesses that eliminate the manual work eating up your time.</p>
       <p>My engineering background means I approach every workflow the way I'd approach a structure: <strong>systematic, tested, and built to last</strong>. I don't just wire things together — I think through failure modes, error handling, and what happens at 3am when no one's watching.</p>
-      <p>Every system I build comes with a full Loom walkthrough, is connected to your Google Sheets for visibility, and runs 24/7 without your involvement.</p>
+      <p>Every system I build comes with a full Loom walkthrough, connects to your existing tools, and runs 24/7 without your involvement.</p>
       <div class="about-stack">
         <div class="stack-label">My Stack</div>
         <div class="stack-chips">
           <span class="chip">n8n Cloud</span>
-          <span class="chip">Claude AI (Haiku)</span>
-          <span class="chip">Shopify API</span>
+          <span class="chip">Claude AI</span>
           <span class="chip">Gmail / Google Sheets</span>
           <span class="chip">Webhooks</span>
           <span class="chip">REST APIs</span>
+          <span class="chip">Cal.com / Calendly</span>
         </div>
       </div>
       <div class="about-links">
@@ -967,8 +1097,8 @@
     <div class="credential-card">
       <div class="credential-icon">⚡</div>
       <div>
-        <h4>17 Workflows Built & Tested</h4>
-        <p>Every workflow runs on a live Shopify dev store before it touches yours.</p>
+        <h4>21 Workflows Built & Tested</h4>
+        <p>Every workflow is fully built and verified end-to-end before it touches your business.</p>
       </div>
     </div>
     <div class="credential-card">
@@ -1027,7 +1157,7 @@ function resize() {
   init();
 }
 
-const NODE_LABELS = ['Shopify\nTrigger','Edit\nFields','Claude\nAI','Gmail\nSend','Google\nSheets','IF\nNode','Wait\n1hr','Webhook','Error\nAlert','Aggregate'];
+const NODE_LABELS = ['Webhook\nTrigger','Edit\nFields','Claude\nAI','Gmail\nSend','Google\nSheets','IF\nNode','Wait\n1hr','Cal.com','Error\nAlert','Aggregate'];
 const NODE_COLORS = ['#5B5FEF','#7B7FF5','#5B5FEF','#FB923C','#22C55E','#F43F5E','#A855F7','#5B5FEF','#FB923C','#7B7FF5'];
 
 function init() {
@@ -1054,7 +1184,6 @@ function init() {
 function draw(t) {
   ctx.clearRect(0, 0, W, H);
 
-  // Move nodes gently
   nodes.forEach(n => {
     n.x += n.vx; n.y += n.vy;
     if (n.x < 60 || n.x > W - 60) n.vx *= -1;
@@ -1063,7 +1192,6 @@ function draw(t) {
     if (n.activeTimer > 0) n.activeTimer--;
   });
 
-  // Draw edges
   edges.forEach(e => {
     const a = nodes[e.from], b = nodes[e.to];
     ctx.beginPath();
@@ -1073,7 +1201,6 @@ function draw(t) {
     ctx.lineWidth = 1.2;
     ctx.stroke();
 
-    // Traveling particle
     e.progress += e.speed;
     if (e.progress > 1) {
       e.progress = 0;
@@ -1087,17 +1214,14 @@ function draw(t) {
     ctx.fill();
   });
 
-  // Draw nodes
   nodes.forEach(n => {
     const isActive = n.activeTimer > 0;
-    const glow = isActive ? 0.35 : 0.12 + Math.sin(n.pulse) * 0.05;
 
     ctx.beginPath();
     ctx.arc(n.x, n.y, n.r + 8, 0, Math.PI * 2);
     ctx.fillStyle = isActive ? `rgba(91,95,239,0.22)` : `rgba(91,95,239,0.07)`;
     ctx.fill();
 
-    // Node box
     const s = n.r * 1.5;
     ctx.beginPath();
     ctx.roundRect(n.x - s/2, n.y - s/2.6, s, s/1.3, 5);
@@ -1107,7 +1231,6 @@ function draw(t) {
     ctx.lineWidth = isActive ? 1.5 : 1;
     ctx.stroke();
 
-    // Label
     const lines = n.label.split('\n');
     ctx.fillStyle = isActive ? '#F0F0F5' : 'rgba(122,122,140,0.9)';
     ctx.font = `500 ${Math.floor(n.r * 0.45)}px Inter, sans-serif`;
