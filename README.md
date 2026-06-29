@@ -114,6 +114,6 @@ Every Monday at 8am, pulls full inventory data and sends the business owner a pl
 
 I build done-for-you AI automation systems for service-based businesses. Setup takes 5–7 days. Starter package from $500.
 
-🌐 [View Portfolio & Book a Discovery Call](https://n8n-djmo.github.io/shopify-automation-portfolio/)
+🌐 [View Portfolio & Book a Discovery Call](https://n8n-djmo.github.io/ai-automation-portfolio/)
 
 📧 Or email me directly at [denmarjohnoropel@gmail.com](mailto:denmarjohnoropel@gmail.com)
